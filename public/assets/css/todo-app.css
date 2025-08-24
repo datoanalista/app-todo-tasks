@@ -1,0 +1,575 @@
+<<<<<<< HEAD
+
+=======
+/**
+ * Todo App - Estilos principales
+ * Aplicación de gestión de tareas con CodeIgniter 4
+ * Version: 2.0 - Optimizada y modularizada
+ */
+
+/* === RESET Y BASE === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+<<<<<<< HEAD
+=======
+/* === CONTENEDOR PRINCIPAL === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid #e1e8ed;
+}
+
+<<<<<<< HEAD
+=======
+/* === HEADER === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+<<<<<<< HEAD
+=======
+/* === CONTENIDO PRINCIPAL === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.content {
+    padding: 30px;
+}
+
+<<<<<<< HEAD
+=======
+/* === FORMULARIO AGREGAR TAREA === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.add-task-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e1e8ed;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    align-items: stretch;
+}
+
+.add-task-form input[type="text"] {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: inherit;
+}
+
+.add-task-form input[type="text"]:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+<<<<<<< HEAD
+=======
+.add-task-form input[type="text"]:invalid {
+    border-color: #e74c3c;
+}
+
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.add-task-form button {
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.add-task-form button:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1f5f8b 100%);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+    transform: translateY(-1px);
+}
+
+.add-task-form button:active {
+    transform: translateY(0);
+}
+
+.add-task-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+<<<<<<< HEAD
+=======
+/* === CONTENEDOR DE TAREAS === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.tasks-container {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e1e8ed;
+}
+
+<<<<<<< HEAD
+=======
+/* === ITEM DE TAREA === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #f1f3f4;
+    transition: all 0.3s ease;
+    gap: 20px;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-item:hover {
+    background-color: #f8fafc;
+    border-left: 3px solid #3498db;
+<<<<<<< HEAD
+    padding-left: 17px;
+=======
+    padding-left: 17px; /* Compensar el borde izquierdo */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+}
+
+.task-item:focus-within {
+    background-color: #f0f8ff;
+    border-left: 3px solid #3498db;
+    padding-left: 17px;
+}
+
+.task-title {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #333;
+    transition: color 0.3s ease;
+    padding: 10px 0;
+    word-break: break-word;
+}
+
+.task-title.editing {
+    background: #f0f8ff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #3498db;
+}
+
+.task-date {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
+<<<<<<< HEAD
+=======
+/* === ACCIONES DE TAREA === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.task-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btn-edit, 
+.btn-delete {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.btn-edit {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn-edit:hover {
+    background: #7f8c8d;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(149, 165, 166, 0.3);
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
+}
+
+.btn-edit:active,
+.btn-delete:active {
+    transform: translateY(0);
+}
+
+<<<<<<< HEAD
+=======
+/* === ESTADOS VACÍOS Y DE CARGA === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6c757d;
+}
+
+.empty-state h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #495057;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #6c757d;
+}
+
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+<<<<<<< HEAD
+=======
+/* === ALERTAS === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    position: relative;
+    animation: slideInDown 0.3s ease-out;
+}
+
+.alert-success {
+    background-color: #d5f4e6;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.alert-error {
+    background-color: #fde8e8;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+<<<<<<< HEAD
+=======
+/* === MODAL === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+
+.modal-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e1e8ed;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.modal-message {
+    color: #7f8c8d;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.modal-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+    font-family: inherit;
+}
+
+.modal-btn-cancel {
+    background: #ecf0f1;
+    color: #7f8c8d;
+    border: 1px solid #bdc3c7;
+}
+
+.modal-btn-cancel:hover {
+    background: #d5dbdb;
+    border-color: #95a5a6;
+    transform: translateY(-1px);
+}
+
+.modal-btn-confirm {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+}
+
+.modal-btn-confirm:hover {
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+    transform: translateY(-1px);
+}
+
+.modal-btn:active {
+    transform: translateY(0);
+}
+
+<<<<<<< HEAD
+=======
+/* === RESPONSIVE DESIGN === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        border-radius: 8px;
+    }
+    
+    .header {
+        padding: 20px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+    
+    .add-task-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .add-task-form button {
+        padding: 12px 20px;
+    }
+    
+    .task-item {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .task-actions {
+        justify-content: center;
+    }
+    
+    .modal {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .modal-btn {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .task-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn-edit,
+    .btn-delete {
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+<<<<<<< HEAD
+=======
+/* === MEJORAS DE ACCESIBILIDAD === */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+<<<<<<< HEAD
+=======
+/* Focus visible para mejor accesibilidad */
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+<<<<<<< HEAD
+=======
+
+/* Estados de loading mejorados */
+.btn-loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+>>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
