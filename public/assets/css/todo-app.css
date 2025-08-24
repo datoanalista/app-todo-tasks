@@ -23,13 +23,119 @@
 [data-theme="dark"] {
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
-    --card-bg: #2d2d2d;
+    --card-bg: #252525;
     --header-gradient-start: #4c51bf;
     --header-gradient-end: #5a5fcf;
     --button-bg: linear-gradient(135deg, #4c51bf 0%, #5a5fcf 100%);
     --task-bg: #333333;
     --border-color: #404040;
     --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode específico para header y form */
+[data-theme="dark"] .header {
+    background: rgba(37, 37, 37, 0.9);
+}
+
+[data-theme="dark"] .header h1 {
+    background: linear-gradient(135deg, #8b9cff 0%, #a8b8ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .header p {
+    color: #b8b8b8;
+}
+
+[data-theme="dark"] .add-task-form {
+    background: rgba(37, 37, 37, 0.95);
+}
+
+[data-theme="dark"] .add-task-form input[type="text"] {
+    background: #3a3a3a;
+    border-color: #4a4a4a;
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .add-task-form input[type="text"]:focus {
+    background: #404040;
+    border-color: #6b7db8;
+    box-shadow: 0 0 0 3px rgba(107, 125, 184, 0.2);
+}
+
+[data-theme="dark"] .add-task-form input[type="text"]::placeholder {
+    color: #888;
+}
+
+[data-theme="dark"] .add-task-form button {
+    background: linear-gradient(135deg, #4a5568 0%, #5a67d8 100%);
+}
+
+[data-theme="dark"] .add-task-form button:hover {
+    background: linear-gradient(135deg, #3c4758 0%, #4c51bf 100%);
+    box-shadow: 0 6px 20px rgba(74, 85, 104, 0.4);
+}
+
+/* Botones de editar y eliminar para modo oscuro */
+[data-theme="dark"] .edit-btn {
+    background: #9b7b4f;
+}
+
+[data-theme="dark"] .edit-btn:hover {
+    background: #b8954d;
+}
+
+[data-theme="dark"] .delete-btn {
+    background: #8b5a5a;
+}
+
+[data-theme="dark"] .delete-btn:hover {
+    background: #a66767;
+}
+
+/* Estilos para el contenido de la tarea */
+.task-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.task-status {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    width: fit-content;
+}
+
+.status-completed {
+    background: rgba(46, 125, 50, 0.15);
+    color: #2e7d32;
+    border: 1px solid rgba(46, 125, 50, 0.3);
+}
+
+.status-pending {
+    background: rgba(255, 152, 0, 0.15);
+    color: #f57c00;
+    border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+/* Estilos para modo oscuro */
+[data-theme="dark"] .status-completed {
+    background: rgba(76, 216, 100, 0.2);
+    color: #4caf50;
+    border: 1px solid rgba(76, 216, 100, 0.4);
+}
+
+[data-theme="dark"] .status-pending {
+    background: rgba(255, 183, 77, 0.2);
+    color: #ffb74d;
+    border: 1px solid rgba(255, 183, 77, 0.4);
 }
 
 * {

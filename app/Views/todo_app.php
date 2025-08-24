@@ -6,9 +6,9 @@
     <meta name="description" content="Aplicación de gestión de tareas desarrollada con CodeIgniter 4">
     <meta name="author" content="Todo App Team">
     <title>Lista de Tareas - CodeIgniter</title>
-    <link rel="preload" href="<?= base_url() ?>assets/css/todo-app.css" as="style">
-    <link rel="preload" href="<?= base_url() ?>assets/js/todo-app.js" as="script">
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/todo-app.css">
+    <link rel="preload" href="<?= base_url() ?>assets/css/todo-app.css?v=<?= time() ?>" as="style">
+    <link rel="preload" href="<?= base_url() ?>assets/js/todo-app.js?v=<?= time() ?>" as="script">
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/todo-app.css?v=<?= time() ?>">
     <link rel="icon" href="<?= base_url() ?>favicon.ico" type="image/x-icon">
 </head>
 <body>

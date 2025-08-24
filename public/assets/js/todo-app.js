@@ -414,7 +414,12 @@ class TodoApp {
                        onchange="todoApp.toggleTask(${task.id})"
                        aria-label="Marcar tarea como ${task.completed == 1 ? 'pendiente' : 'completada'}">
                 
-                <span class="task-title">${this.escapeHtml(task.title)}</span>
+                <div class="task-content">
+                    <span class="task-title">${this.escapeHtml(task.title)}</span>
+                    <div class="task-status ${task.completed == 1 ? 'status-completed' : 'status-pending'}">
+                        ${task.completed == 1 ? '✅ Tarea completada' : '⏳ Tarea pendiente'}
+                    </div>
+                </div>
                 
                 <div class="task-actions">
                     <button class="edit-btn" 
