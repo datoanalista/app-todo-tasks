@@ -21,11 +21,14 @@ class Tasks extends ResourceController
     {
         try {
             $tasks = $this->taskModel->findAll();
+            
             return $this->respond([
                 'status' => 'success',
                 'data' => $tasks
             ]);
         } catch (\Exception $e) {
+            log_message('error', 'Tasks API Error: ' . $e->getMessage());
+            
             return $this->failServerError('Error al obtener las tareas: ' . $e->getMessage());
         }
     }
@@ -59,13 +62,11 @@ class Tasks extends ResourceController
             if (!$this->taskModel->validate($data)) {
                 return $this->failValidationError('Datos inválidos', $this->taskModel->errors());
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> 3b1ddc7d2af4f2e9213b1295db205949427c55fe
             $data['created_at'] = date('Y-m-d H:i:s');
             $taskId = $this->taskModel->insert($data);
             $task = $this->taskModel->find($taskId);
+            
             return $this->respondCreated([
                 'status' => 'success',
                 'message' => 'Tarea creada exitosamente',
@@ -95,7 +96,6 @@ class Tasks extends ResourceController
             }
 
             $data['updated_at'] = date('Y-m-d H:i:s');
-
             $this->taskModel->update($id, $data);
             $updatedTask = $this->taskModel->find($id);
 
