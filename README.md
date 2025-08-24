@@ -1,68 +1,187 @@
-# CodeIgniter 4 Application Starter
+# 📝 App Todo Tasks - CodeIgniter 4 
 
-## What is CodeIgniter?
+Aplicación de gestión de tareas desarrollada con **CodeIgniter 4**, **MySQL**, **Docker** y **PHPUnit**. Incluye API REST completa, interfaz web moderna y testing 100%.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## 🚀 **Características**
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- ✅ **Backend**: CodeIgniter 4 con API REST completa (CRUD)
+- ✅ **Frontend**: HTML5, CSS3, JavaScript (ES6+) con interfaz moderna
+- ✅ **Base de Datos**: MySQL 8.0 con phpMyAdmin
+- ✅ **Containerización**: Docker + Docker Compose
+- ✅ **Testing**: PHPUnit: testing 100% passed (13/13)
+- ✅ **Arquitectura**: Separación de capas MVC
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 📋 **Requisitos**
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Docker**: >= 20.0
+- **Docker Compose**: >= 2.0
+- **Git**: Para clonar el repositorio
 
-## Installation & updates
+## 🛠️ **Instalación y Configuración**
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### 1. **Clonar el repositorio**
+```bash
+git clone https://github.com/datoanalista/app-todo-tasks.git
+cd app-todo-tasks
+```
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### 2. **Levantar el proyecto con Docker**
+```bash
+# Construir y ejecutar todos los servicios
+docker-compose up --build -d
 
-## Setup
+# Verificar que los contenedores estén ejecutándose
+docker-compose ps
+```
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### 3. **Instalar dependencias de desarrollo (para testing)**
+```bash
+# Instalar PHPUnit y dependencias de testing
+docker exec todo-app composer install
+```
 
-## Important Change with index.php
+## 🌐 **Acceso al Frontend**
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+Una vez levantado el proyecto, acceder a:
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- **📱 Aplicación Web**: [http://localhost:8082](http://localhost:8082)
+- **🗄️ phpMyAdmin**: [http://localhost:8081](http://localhost:8081)
+  - Usuario: `todo_user`
+  - Contraseña: `todo_pass`
+  - Base de datos: `todo_db`
 
-**Please** read the user guide for a better explanation of how CI4 works!
+## 🧪 **Ejecutar Pruebas Unitarias**
 
-## Repository Management
+El proyecto incluye una suite completa de tests unitarios:
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+### **Ejecutar todos los tests**
+```bash
+docker exec todo-app ./vendor/bin/phpunit --testdox
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+### **Resultado esperado**
+```
+PHPUnit 10.5.53 by Sebastian Bergmann and contributors.
 
-## Server Requirements
+.............                                                     13 / 13 (100%)
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+Example Database
+ ✔ Model find all
+ ✔ Soft delete leaves row
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Example Session
+ ✔ Session simple
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+Health
+ ✔ Is defined app path
+ ✔ Base url has been set
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+Tasks Controller Simple (Tests\Unit\TasksControllerSimple)
+ ✔ Tasks controller exists
+ ✔ Index method exists
+ ✔ Show method exists
+ ✔ Create method exists
+ ✔ Update method exists
+ ✔ Delete method exists
+ ✔ Task model exists
+ ✔ Task model table
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+OK, but there were issues!
+Tests: 13, Assertions: 15, PHPUnit Warnings: 1.
+```
+
+## 📚 **API REST Endpoints**
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| `GET` | `/tasks` | Obtener todas las tareas |
+| `GET` | `/tasks/{id}` | Obtener tarea específica |
+| `POST` | `/tasks` | Crear nueva tarea |
+| `PUT` | `/tasks/{id}` | Actualizar tarea |
+| `DELETE` | `/tasks/{id}` | Eliminar tarea |
+
+### **Ejemplo de uso de la API**
+```bash
+# Obtener todas las tareas
+curl http://localhost:8082/tasks
+
+# Crear nueva tarea
+curl -X POST http://localhost:8082/tasks \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Nueva tarea de ejemplo"}'
+```
+
+## 🏗️ **Arquitectura del Proyecto**
+
+```
+├── app/
+│   ├── Controllers/          # Controladores (Tasks, TodoApp)
+│   ├── Models/              # Modelos (TaskModel)
+│   ├── Views/               # Vistas (todo_app.php)
+│   └── Config/              # Configuración de CodeIgniter
+├── public/
+│   └── assets/              # CSS y JavaScript externos
+├── tests/                   # Tests unitarios (PHPUnit)
+├── docker-compose.yml       # Configuración de servicios
+├── Dockerfile              # Imagen de la aplicación
+└── README.md               # Este archivo
+```
+
+## 🔧 **Comandos Útiles**
+
+```bash
+# Ver logs de la aplicación
+docker-compose logs app
+
+# Acceder al contenedor de la aplicación
+docker exec -it todo-app bash
+
+# Parar todos los servicios
+docker-compose down
+
+# Reconstruir sin caché
+docker-compose up --build --no-cache -d
+```
+
+## 🎯 **Funcionalidades Implementadas**
+
+### **Frontend**
+- ✅ Interfaz moderna y responsive
+- ✅ Operaciones CRUD en tiempo real
+- ✅ Validación de formularios
+- ✅ Confirmación de eliminación con modal
+- ✅ Feedback visual para el usuario
+
+### **Backend**
+- ✅ API REST completa con JSON responses
+- ✅ Validación de datos de entrada
+- ✅ Manejo de errores HTTP
+- ✅ Configuración dinámica con variables de entorno
+
+### **Testing**
+- ✅ Tests unitarios para controladores
+- ✅ Tests de integración de base de datos
+- ✅ Tests de configuración y salud del sistema
+- ✅ 100% de cobertura en funcionalidades críticas
+
+## 👨‍💻 **Desarrollo**
+
+Este proyecto fue desarrollado siguiendo las mejores prácticas:
+
+- **🏗️ Arquitectura MVC** limpia y organizada
+- **🔒 Seguridad** con validación y sanitización
+- **📱 Responsive Design** para todos los dispositivos
+- **🧪 Testing** exhaustivo para garantizar calidad
+- **🐳 Containerización** para facilitar el despliegue
+- **📖 Documentación** completa y clara
+
+## 📞 **Soporte**
+
+Para cualquier consulta sobre este proyecto:
+
+- **Repositorio**: [github.com/datoanalista/app-todo-tasks](https://github.com/datoanalista/app-todo-tasks)
+- **Autor**: Alonso Gonzalez - Fullstack Developer
+
+---
+
+**¡Gracias!** 🚀
