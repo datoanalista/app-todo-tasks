@@ -10,6 +10,9 @@ Aplicación de gestión de tareas desarrollada con **CodeIgniter 4**, **MySQL**,
 - ✅ **Containerización**: Docker + Docker Compose
 - ✅ **Testing**: PHPUnit: testing 100% passed (13/13)
 - ✅ **Arquitectura**: Separación de capas MVC
+- ✅ **Branches**: 
+  * **master**: rama principal, CRUD simple.
+  * **development**: rama desarrollo, se agrega estado en card y funcionalidad modo oscuro.
 
 ## 📋 **Requisitos**
 
