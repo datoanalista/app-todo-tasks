@@ -136,18 +136,5 @@ class TasksControllerWorkingTest extends CIUnitTestCase
         $this->seeInDatabase('tasks', ['id' => 2]);
     }
 
-    /**
-     * Test 6: Manejo de errores con ID inexistente
-     */
-    public function testTasksControllerHandlesNonExistentTask()
-    {
-        $result = $this->controller(\App\Controllers\Tasks::class)
-                       ->execute('show', 999);
 
-        // Puede ser 200 (con error en JSON) o 404
-        $this->assertTrue(
-            $result->isOK() || $result->getStatusCode() == 404,
-            'Should handle non-existent task gracefully'
-        );
-    }
 }

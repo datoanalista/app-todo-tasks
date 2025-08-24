@@ -13,9 +13,9 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: #34495e;
     min-height: 100vh;
-    color: #333;
+    color: #2c3e50;
     line-height: 1.6;
     font-size: 16px;
     overflow-x: hidden;
@@ -68,12 +68,29 @@ body {
 .header h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #5a67d8 0%, #6b73ff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.title-icon {
+    color: #27ae60;
+    font-size: 2.5rem;
+    display: inline-block;
+    margin-right: 0.8rem;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .header p {
@@ -130,7 +147,7 @@ body {
 
 .add-task-form button {
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #5a67d8 0%, #6b73ff 100%);
     color: white;
     border: none;
     border-radius: 12px;
@@ -138,14 +155,14 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 15px rgba(90, 103, 216, 0.3);
     min-width: 140px;
 }
 
 .add-task-form button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    box-shadow: 0 6px 20px rgba(90, 103, 216, 0.4);
+    background: linear-gradient(135deg, #4c51bf 0%, #5a5fcf 100%);
 }
 
 .add-task-form button:active {
@@ -241,6 +258,30 @@ body {
 
 .delete-btn:hover {
     background: #d63031;
+    transform: scale(1.1);
+}
+
+.save-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background: #229954;
+    transform: scale(1.1);
+}
+
+.cancel-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background: #c0392b;
     transform: scale(1.1);
 }
 

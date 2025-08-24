@@ -15,7 +15,7 @@
     <a href="#main-content" class="sr-only">Saltar al contenido principal</a>
     <div class="container">
         <header class="header" role="banner">
-            <h1>📝 Lista de Tareas</h1>
+            <h1><span class="title-icon">✓</span> Lista de Tareas</h1>
             <p>Gestiona tus tareas de manera eficiente.</p>
         </header>
 
@@ -53,9 +53,9 @@
                      aria-label="Tareas disponibles">
                     <div class="loading" role="status" aria-live="polite">
                         <div class="spinner" aria-hidden="true"></div>
-                        <p>Cargando tareas...</p>
-                    </div>
+                    <p>Cargando tareas...</p>
                 </div>
+            </div>
             </section>
         </main>
     </div>

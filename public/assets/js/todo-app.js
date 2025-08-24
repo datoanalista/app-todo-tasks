@@ -183,13 +183,12 @@ class TodoApp {
         
         // Crear input de edición
         const originalTitle = task.title;
-        titleElement.innerHTML = `
+                titleElement.innerHTML = `
             <input type="text" 
-                   class="edit-input" 
+                   class="edit-input"
                    value="${this.escapeHtml(originalTitle)}" 
                    maxlength="255"
                    onkeypress="if(event.key==='Enter') todoApp.saveEdit(${taskId}, this.value)"
-                   onblur="todoApp.cancelEdit(${taskId}, '${this.escapeHtml(originalTitle)}')"
                    style="background: white; color: #333; border: 1px solid #ddd; border-radius: 4px; padding: 5px; width: 100%;">
         `;
         
@@ -201,17 +200,28 @@ class TodoApp {
         // Cambiar botones
         const actionsDiv = taskElement.querySelector('.task-actions');
         actionsDiv.innerHTML = `
-            <button class="edit-btn" 
-                    onclick="todoApp.saveEdit(${taskId}, document.querySelector('[data-task-id=\\"${taskId}\\"] .edit-input').value)"
+            <button class="save-btn" 
+                    onclick="todoApp.saveEditFromInput(${taskId})"
                     title="Guardar cambios">
-                ✅
+                💾
             </button>
-            <button class="delete-btn" 
+            <button class="cancel-btn" 
                     onclick="todoApp.cancelEdit(${taskId}, '${this.escapeHtml(originalTitle)}')"
                     title="Cancelar edición">
                 ❌
             </button>
         `;
+    }
+
+    /**
+     * Guardar edición desde el input (función auxiliar)
+     */
+    saveEditFromInput(taskId) {
+        const taskElement = document.querySelector(`[data-task-id="${taskId}"]`);
+        const input = taskElement.querySelector('.edit-input');
+        if (input) {
+            this.saveEdit(taskId, input.value);
+        }
     }
 
     /**
