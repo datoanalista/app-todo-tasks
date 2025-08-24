@@ -5,6 +5,33 @@
  */
 
 /* === RESET Y BASE === */
+/* Variables CSS */
+:root {
+    /* Light mode colors */
+    --bg-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --card-bg: white;
+    --header-gradient-start: #5a67d8;
+    --header-gradient-end: #6b73ff;
+    --button-bg: linear-gradient(135deg, #5a67d8 0%, #6b73ff 100%);
+    --task-bg: white;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode colors */
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --card-bg: #2d2d2d;
+    --header-gradient-start: #4c51bf;
+    --header-gradient-end: #5a5fcf;
+    --button-bg: linear-gradient(135deg, #4c51bf 0%, #5a5fcf 100%);
+    --task-bg: #333333;
+    --border-color: #404040;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,12 +40,13 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #34495e;
+    background: var(--bg-color);
     min-height: 100vh;
-    color: #2c3e50;
+    color: var(--text-color);
     line-height: 1.6;
     font-size: 16px;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* === ACCESIBILIDAD === */
@@ -65,10 +93,38 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}
+
+.theme-btn {
+    background: var(--task-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px var(--shadow-color);
+}
+
 .header h1 {
     font-size: 2.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #5a67d8 0%, #6b73ff 100%);
+    background: linear-gradient(135deg, var(--header-gradient-start) 0%, var(--header-gradient-end) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -172,13 +228,14 @@ body {
 
 /* === CONTENEDOR DE TAREAS === */
 .tasks-container {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--card-bg);
     border-radius: 16px;
     padding: 1.5rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px var(--shadow-color);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-color);
     min-height: 200px;
+    transition: background-color 0.3s ease;
 }
 
 /* === TAREA INDIVIDUAL === */
@@ -188,17 +245,18 @@ body {
     gap: 1rem;
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
-    background: rgba(255, 255, 255, 0.7);
+    background: var(--task-bg);
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px var(--shadow-color);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    border: 1px solid var(--border-color);
 }
 
 .task:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 16px var(--shadow-color);
 }
 
 .task.completed {
@@ -215,9 +273,10 @@ body {
     flex: 1;
     font-size: 1rem;
     font-weight: 500;
-    color: #333;
+    color: var(--text-color);
     word-break: break-word;
     line-height: 1.4;
+    transition: color 0.3s ease;
 }
 
 .task-actions {

@@ -35,6 +35,7 @@ class TodoApp {
         this.initializeElements();
         this.attachEventListeners();
         this.loadTasks();
+        this.initThemeToggle();
     }
 
     /**
@@ -498,6 +499,40 @@ class TodoApp {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+
+    /**
+     * Inicializar toggle de tema
+     */
+    initThemeToggle() {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (!themeToggle) return;
+
+        // Verificar tema guardado
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        this.updateThemeIcon(savedTheme);
+
+        // Event listener para cambio de tema
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            this.updateThemeIcon(newTheme);
+        });
+    }
+
+    /**
+     * Actualizar icono del tema
+     */
+    updateThemeIcon(theme) {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+            themeToggle.title = theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+        }
     }
 }
 

@@ -15,6 +15,9 @@
     <a href="#main-content" class="sr-only">Saltar al contenido principal</a>
     <div class="container">
         <header class="header" role="banner">
+            <div class="theme-toggle">
+                <button id="theme-toggle" class="theme-btn" title="Cambiar tema">🌙</button>
+            </div>
             <h1><span class="title-icon">✓</span> Lista de Tareas</h1>
             <p>Gestiona tus tareas de manera eficiente.</p>
         </header>
